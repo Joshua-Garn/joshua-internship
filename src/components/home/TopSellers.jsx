@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Skeleton from "../UI/Skeleton";
+import Aos from "aos";
+import 'aos/dist/aos.css';
 
 const TopSellers = () => {
   const [sellers, setSellers] = useState([]);
@@ -18,6 +20,7 @@ const TopSellers = () => {
 
   useEffect(() => {
     fetchSellers();
+    Aos.init()
   }, []);
 
   function loadingSkeleton(index) {
